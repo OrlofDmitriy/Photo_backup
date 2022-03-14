@@ -27,6 +27,7 @@ class VkPhoto:
             users = user_id
         else:
             print('Нет такой команды!')
+
         return users
 
     def get_photos(self, count=5):
@@ -43,6 +44,7 @@ class VkPhoto:
         likes = {}
         data_for_json = []
         photo_list = []
+
         for el in photos:
             likes.setdefault(el['likes']['count'], 0)
             likes[el['likes']['count']] += 1
