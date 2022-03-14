@@ -1,7 +1,8 @@
 import requests
 import json
-from tqdm import tqdm
 import time
+from tqdm import tqdm
+from datetime import datetime
 
 
 class VkPhoto:
@@ -51,7 +52,7 @@ class VkPhoto:
         for el in tqdm(photos):
             photo_data = []
             like = el['likes']['count']
-            date = el['date']
+            date = datetime.now().date()
             if likes[like] > 1:
                 name = f'{like}_{date}'
             else:
@@ -67,5 +68,4 @@ class VkPhoto:
         with open('photos.json', 'w') as file:
             json.dump(data_for_json, file, ensure_ascii=False, indent=2)
 
-        # return photo_list
-        print(photo_list)
+        return photo_list
